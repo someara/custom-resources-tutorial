@@ -1,0 +1,24 @@
+---
+driver_plugin: vagrant
+
+driver_config:
+  customize:
+    cpus: 2
+    memory: 1024
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: true
+
+verifier:
+  name: inspec
+
+platforms:
+- name: ubuntu-15.04
+  driver_config:
+    box: opscode-ubuntu-15.04
+
+suites:
+- name: my_file
+  run_list:
+  - recipe[my_file_test::default]

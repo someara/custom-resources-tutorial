@@ -8,7 +8,7 @@ describe 'my_file_test::default' do
   it 'compiles the resource_collection' do
     expect(chef_run).to create_my_file('/hello.txt').with(
       content: "why hello there\n"
-      )
+    )
 
     expect(chef_run).to run_execute('touch /delete_me.txt')
     expect(chef_run).to create_file('/marker_delete_me')

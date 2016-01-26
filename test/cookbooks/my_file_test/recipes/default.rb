@@ -3,7 +3,7 @@ my_file '/hello.txt' do
   action :create
 end
 
-execute 'touch /delete_me.txt' do  
+execute 'touch /delete_me.txt' do
   action :run
   not_if { ::File.exist?('/marker_delete_me') }
 end

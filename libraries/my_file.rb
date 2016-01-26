@@ -14,4 +14,8 @@ class MyFile < Chef::Resource
       IO.write(path, content)
     end
   end
+
+  action :delete do
+    ::File.delete(path) if ::File.exist?(path)
+  end
 end
